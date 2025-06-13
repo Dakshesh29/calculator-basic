@@ -2,6 +2,8 @@ let firstNumber;
 let operator;
 let secondNumber;
 
+let displayNumber = '';
+
 function add(firstNumber,secondNumber){
     return firstNumber + secondNumber
 }
@@ -15,10 +17,10 @@ function multiply(firstNumber, secondNumber){
 }
 
 function divide(firstNumber, secondNumber){
-    if (b === 0) {
+    if (secondNumber === 0) {
         return "Cannot divide by zero!";
     }
-    return a / b;
+    return firstNumber / secondNumber;
 }
 
 function operate(firstNumber, operator, secondNumber){
@@ -34,4 +36,24 @@ function operate(firstNumber, operator, secondNumber){
     }
 }
 
-console.log(operate(4,"+",6))
+let screen = document.querySelector('#screen')
+let numberBtn = document.querySelectorAll('.number')
+
+numberBtn.forEach(button =>{
+    button.addEventListener('click',function(){
+        displayNumber += button.textContent
+        screen.value = displayNumber
+    })
+})
+
+let symbolBtn = document.querySelectorAll('.symbol')
+symbolBtn.forEach(button => {
+    button.addEventListener('click',function(){
+        displayNumber += button.textContent
+        screen.value = displayNumber
+    })
+})
+
+
+
+
